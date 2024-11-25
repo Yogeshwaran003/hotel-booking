@@ -25,6 +25,7 @@ const Product = () => {
   const navigate = useNavigate();
   const [auth] = useAuth();
   const [booking, setBooking] = useBook();
+  console.log("Related Products", relatedProducts);
 
   const handleCheckIn = () => {
     if (!auth?.token) {
@@ -41,22 +42,35 @@ const Product = () => {
   };
 
   console.log("This is postId", postDetails?._id);
+  console.log("This is product categoryID", postDetails?.category._id);
 
   useEffect(() => {
     if (params?.slug) getPostBySlug();
   }, [params?.slug]);
 
-  const getPostBySlug = async () => {
+  const getPostBySlug = async (e) => {
     try {
       const res = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/post/get-post/${params.slug}`
       );
       const product = res.data.product;
       setPostDetails(product);
+      getRelatedPost(product?._id, product?.category._id);
     } catch (error) {
       console.error("Error fetching post details:", error.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const getRelatedPost = async (pid, cid) => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/api/post/related-post/${pid}/${cid}`
+      );
+      setRelatedProducts(res.data.products);
+    } catch (error) {
+      console.log(error);
     }
   };
 
