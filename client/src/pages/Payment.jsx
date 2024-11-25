@@ -149,7 +149,7 @@ const Payment = () => {
 
         // Redirect to orders
         toast.success("Payment and booking successful!");
-        navigate("/your-order");
+        navigate("/user/your-order");
       }
     } catch (error) {
       console.error("Error processing payment:", error.message);
