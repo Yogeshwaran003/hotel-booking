@@ -22,7 +22,9 @@ import Payment from "./pages/Payment";
 import YourOrder from "./pages/YourOrder";
 import ThankYou from "./components/ThankYou";
 import SelectedCategory from "./pages/SelectedCategory";
-import ContributePost from "./pages/User/ContributePost";
+import NextTrip from "./components/NextTrip";
+// import SearchPage from "./pages/SearchPage";
+// import ContributePost from "./pages/User/ContributePost";
 function App() {
   return (
     <>
@@ -31,13 +33,15 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
+        <Route path="/activities" element={<ProductDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/discover" element={<SearchPage/>}/>
         <Route path="/payment" element={<Payment />} />
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/category/:slug" element={<SelectedCategory />} />
-
+        <Route path="/about" element={<NextTrip/>}/>
         <Route path="/user" element={<UserRoutes />}>
           <Route path="" element={<UserDashboard />} />
           <Route path="your-order" element={<YourOrder />} />

@@ -5,6 +5,7 @@ import { useAuth } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -53,21 +54,36 @@ const Navbar = () => {
 
       {/* Navbar Links */}
       <div className="hidden md:flex space-x-6">
-        <a href="/" className="text-gray-600 hover:text-gray-900">
+        {/* <a href="/" className="text-gray-600 hover:text-gray-900">
           Home
-        </a>
-        <a href="#discover" className="text-gray-600 hover:text-gray-900">
+        </a> */}
+
+          <Link to="/" className="text-gray-600 hover:text-gray-900" >Home</Link>
+
+        {/* <a href="#discover" className="text-gray-600 hover:text-gray-900">
           Discover
-        </a>
-        <a href="#activities" className="text-gray-600 hover:text-gray-900">
+        </a> */}
+
+        <Link className="text-gray-600 hover:text-gray-900" to="/discover">Discover</Link>
+
+        {/* <a href="#activities" className="text-gray-600 hover:text-gray-900">
           Activities
-        </a>
-        <a href="#about" className="text-gray-600 hover:text-gray-900">
+        </a> */}
+
+        <Link to="/activities" className="text-gray-600 hover:text-gray-900" >Activities</Link>
+
+        {/* <a href="#about" className="text-gray-600 hover:text-gray-900">
           About
-        </a>
-        <a href="#contact" className="text-gray-600 hover:text-gray-900">
+        </a> */}
+
+          <Link to="/about" className="text-gray-600 hover:text-gray-900"> About </Link>
+
+        {/* <a href="#contact" className="text-gray-600 hover:text-gray-900">
           Contact
-        </a>
+        </a> */}
+
+          <Link to="/"></Link>
+
       </div>
 
       {/* Notification and Profile */}
